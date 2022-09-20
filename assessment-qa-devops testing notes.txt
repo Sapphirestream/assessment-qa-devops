@@ -1,0 +1,85 @@
+
+a win adds to the losses instead
+
+See all bots button doesnt work
+
+opponent 'cards' are longer on the duel screen when a bots name takes two lines
+
+
+check the draw button
+Check that you can choose a card
+Check that you can choose two cards
+check that you can put a card back
+check that the card is the same when 
+check the see all bots button
+check that the cards are the same on the first page
+check dual button
+make sure the correct outcome happened - the math is correct for the attacks vs the health
+check that a win adds to the win counter
+check that a loss adds to the loss counter
+check that the win counter is persistant
+check that the loss counter is persistant
+check that the cards are the same in the dual screen
+
+
+TEST CASE:
+Click See All Bots Button
+--------------------------
+Description: This test will verify that the See All Bots button works
+
+STEPS: 
+	1. Navigate to the home page
+	2. Click See all bots button
+TEST POSTCONDITIONS: 
+	- the entire array of bots should display on screen
+	
+SEE ALL BOTS BUG REPORT
+------------------------
+Description
+	The See All Bots button does not display any bots
+	
+Steps to Reproduce
+	1. Navigate to the home page
+	2. Click See all bots button 
+Expected Result 
+	All of the bots in data.js should display in cards
+
+Actual Result
+	No bots are displayed; 
+	Console Error code: 400 "ERR_BAD_REQUEST
+	Node error: ERROR GETTING BOTS ReferenceError: botsArr is not defined
+    at C:\Users\Rebec\Desktop\devmountain\assessment-qa-devops\server.js:27:26
+	
+Environment: 
+	Firefox 104.0.2 (64-bit)
+	Windows 10
+	
+	
+ BUG FIX:
+	change Botsarr on line 27 in server.js to bots
+	- Botsarr did not exist, we were destructuring bots off of data.js 
+	
+WIN COUNTER BUG REPORT
+-----------------------
+Win counter does not update. When a duel is won, the loss counter is increased 
+
+Steps to Reproduce
+	1. navigate to main page
+	2. Click the Draw card
+	3. Click the "add to duo" of the highest health card avaliable
+	4. Click the "add to duo: of the next highest health card avaliable
+	5. Check to see if "you won!" text appears 
+	6. if lost - hit "play again" button and repeat steps 2-5 until a win
+	
+Expected Result
+	Win counter should increase by one
+	Lose counter should stay the same
+	
+Actual Result
+	Win counter stays the same
+	Lose counter increases by one 
+	
+Environment
+	Firefox 104.0.2 (64-bit)
+	Windows 10
+	
